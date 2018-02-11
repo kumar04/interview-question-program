@@ -1,0 +1,78 @@
+Q. Write a prog in which count word of a file and find first matching words in that file ?4. Count word in string ?
+Q. String s1 = "dharmesh", string s2 = "namdev", how write them together
+ex. dharmesh namdev
+Suppose you have on string check is it even or odd
+And if it is odd add middel character to both side in your string and remove from middel, if it is even the break it in 
+simple two parts by equal character
+
+Q.Suppose you have on string check is it even or odd
+And if it is odd add middel character to both side in your string and remove from middel, if it is even the break it in 
+simple two parts by equal character
+
+Q.wap the given no is prime or not.
+
+Q.How to print duplicates without collection api?
+
+like array is ={1,1,1,2,5,5,5,5,8,9};
+
+output will be 1,5
+
+package com.find.duplicate;
+
+public class PrintDuplicates {
+
+	public static void findDuplicates(int[] a) {
+		int max = a[0];
+		for (int i = 1; i < a.length; i++) {
+			if (a[i] > max) {
+				max = a[i];
+
+			}
+
+		}
+		System.out.println("Max-->" + max);
+		int temp[] = new int[max + 1];
+
+		for (int i = 0; i < a.length; i++) {
+			temp[a[i]] = temp[a[i]] + 1;
+		}
+
+		System.out.println("duplicate elements are");
+
+		for (int i = 0; i < temp.length; i++) {
+			if (temp[i] > 1) {
+				System.out.print(" " + i);
+			}
+		}
+		System.out.println();
+	}
+
+	public static void main(String[] args) {
+		int[] array = { 1, 2, 2, 2, 1, 1, 1, 1, 1, 4, 4, 3, 4, 5, 3, 77 };
+		findDuplicates(array);
+	}
+}
+
+Q.class Employee{
+int id;
+String name;
+String addr;
+}
+i want sort employees based on name and addr?
+the output should be
+
+ram ahamadabad
+ram bangaluru
+ram delhi
+ram mumbai
+
+Q.1.write a singleLinkedlist program input like 1>2>3>4>5 and output 5>4>3>2>1
+
+Q.convert it into int without using any predefined library
+public static int getNumber(String number) {
+int result = 0;
+for (int i = 0; i < number.length(); i++) {
+result = result * 10 + number.charAt(i) - '0';
+}
+return result;
+}
