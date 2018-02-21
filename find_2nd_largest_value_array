@@ -1,0 +1,81 @@
+package com.secondhighest.array;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class FindLargestNumber {
+
+	public static void print2largest(int arr[], int arr_size) {
+		int i = 0, first = 0, second = 0;
+
+		/* There should be atleast two elements */
+		if (arr == null) {
+			throw new NullPointerException(
+					"Please pass array as input:Don't pass Null pass as input");
+		}
+		if (arr_size < 2) {
+			System.out.print(" Invalid Input ");
+			return;
+		}
+
+		// first = second = Integer.MIN_VALUE;
+		System.out.println("first value:" + first);
+		System.out.println("second value:" + second);
+		for (i = 0; i < arr_size; i++) {
+			/*
+			 * If current element is smaller than first then update both first
+			 * and second
+			 */
+			if (arr[i] > first) {
+				second = first;
+				first = arr[i];
+			}
+
+			/*
+			 * If arr[i] is in between first and second then update second
+			 */
+			else if (arr[i] > second && arr[i] != first)
+				second = arr[i];
+		}
+
+		if (second == Integer.MIN_VALUE)
+			System.out.print("There is no second largest" + " element\n");
+		else
+			System.out.println("The second largest element in Array" + " is "
+					+ second);
+	}
+
+	public static List<Integer> findSecondLargestList(List<Integer> list) {
+		int secondLargest = (int) list.get(0);
+		int largest = (int) list.get(0);
+		for (int i = 1; i < list.size(); i++) {
+			if ((int) list.get(i) > largest) {
+				secondLargest = largest;
+				largest = (int) list.get(i);
+			}
+			if ((int) list.get(i) > secondLargest
+					&& (int) list.get(i) != largest) {
+				secondLargest = (int) list.get(i);
+			}
+		}
+		System.out.println("Second biggest number in ArrayList: "
+				+ secondLargest);
+		return list;
+	}
+
+	/* Driver program to test above function */
+	public static void main(String[] args) {
+		int arr[] = { 12, 35, 1, 10, 34, 67 };
+		List<Integer> list = new ArrayList<Integer>();
+		list.add(12);
+		list.add(35);
+		list.add(1);
+		list.add(10);
+		list.add(34);
+		list.add(67);
+		int n = arr.length;
+		print2largest(arr, n);
+		List<Integer> result = findSecondLargestList(list);
+		System.out.println("ArrayList:" + result);
+	}
+}
