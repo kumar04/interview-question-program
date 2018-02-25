@@ -1,0 +1,77 @@
+Callable interface
+The class here looks very similar to the class in the previous chapter where we implemented Runnable interface. It is just that Callable class takes a generic parameter. In the example we have mentioned this generic type as String.
+As Runnable has a run() mthod Callable has call() method. The difference is that call() has a return type while run() does not. And the return type should be same as the generic defines while implementing Callable. In our case String.
+But here the catch, in Runnable we do not have access of the thread once it is started. Meaning that we can not check the thread whether it is completed or there was an Excpetion in the execution. Here in callable we have the handle to the thread we started. By this handle we can check if the thread has completed or there was an Exception. Lets see the test code.
+Advantage:
+stage1:add retrun types of call method,but not for run method
+Stage2:check for end execution of run method
+import java.util.concurrent.Callable;
+
+
+public class CallableThread implements Callable<String>{
+
+ @Override
+ public String call() throws Exception {
+  System.out.println("in Callable");
+  
+  
+  return "finished";
+ }
+ 
+
+}
+
+import java.util.concurrent.FutureTask;
+
+public class ThreadTest {
+
+ public static void main(String args[]) {
+  CallableThread callableThread = new CallableThread();
+  FutureTask futureTask = new FutureTask(callableThread);
+  futureTask.run();
+  System.out.println("hi");
+  try {
+   System.out.println(futureTask.get());
+  } catch (Exception e) {
+  }
+ }
+}
+
+Q)What is the output?
+int i=1;int j=10;
+do
+{
+if(i++ > --j){
+continue;
+}
+}while(i<5);
+System.out.println("i="+i+" and j="+j);
+
+Ans-i=5 and j=6
+
+
+Q)Wap to find sum of first 100 prime numbers?
+Q)Wap to print prime nos from 1 to 100?
+Q)Wap to find sum of digits in the given nos?
+Q)Wap to find top two maximum nos in an array?
+Q)Wap to sort a map by value?
+Q)Wap to get a line with max word count from a given file?
+Q)Suppose an ArrayList contains a list of employee objects with empid,name,dept as its attribute.Wap to sort this list by empid?
+Q)Wap to craete deadlock between two threads?
+Q)Wap to find maximum repeated words from a file?
+Q)Wap to find out duplicate characters in a string?
+Q)Wap to find max no from an array?
+Q)Wap to add objects and then list the content from an ArrayList<String> ?
+Q)Wap to print 1-50 using onr thread and 51-100 from another one simultaneously?
+Q)Wap to get distinct elements from an array?
+Q)Wap to convert decimals to binary format?
+Q)Wap to print Fibonacci series?
+Q)Wap to remove duplicates from sorted array?
+Q)Wap to find given no is Armstrong or not?
+
+Merge two input arrays and sort the merged array in ascending order.
+
+Input: (arr1, arr2) -> arrays of positive integers.
+
+Output: Sorted array in ascending order.
+https://www.studytonight.com/java/tests/1
